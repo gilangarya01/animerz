@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="id">
   <head>
-    <title>Halaman Utama</title>
+    <title>Halaman Character</title>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="../../assets/css/base.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../../assets/css/expand-list.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/search-page.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -17,20 +17,28 @@
 
   <body>
     <nav>
-      <a href="../../index.html">
+      <a href="../index.html">
         <h1>Animerz</h1>
       </a>
       <ul>
-        <li><a href="../../index.html">Home</a></li>
-        <li><a href="../anime-page.html">Anime</a></li>
-        <li><a href="">Manga</a></li>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="./anime-page.html">Anime</a></li>
+        <li><a href="./manga-page.html">Manga</a></li>
         <li><a href="">Karakter</a></li>
       </ul>
     </nav>
     <main>
       <div class="container">
-        <h2 id="expand-judul"></h2>
-        <div id="expand-card" class="list-card"></div>
+        <div class="search-area">
+          <h2>Cari</h2>
+          <div class="input-area">
+            <input id="search-bar" type="text" />
+            <button id="search-button">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+        </div>
+        <div class="list-card"></div>
       </div>
     </main>
     <footer>
@@ -39,11 +47,10 @@
         <p>Dibuat Tahun 2023 - Gilang</p>
       </div>
       <ul>
-        <li><a href="../about.html">About</a></li>
         <li><a href="https://github.com/garpra27/animerz">Github</a></li>
       </ul>
     </footer>
 
-    <script src="../../assets/js/expand-list.js"></script>
+    <script src="../assets/js/character-page.js"></script>
   </body>
 </html>

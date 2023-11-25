@@ -84,12 +84,12 @@ function getAPIForHomePage(url) {
 
 function detailAnime(id) {
   localStorage.setItem("id_item", id);
-  window.location.href = "./pages/home-page/detail-anime.html";
+  window.location.href = "./pages/detail-anime.html";
 }
 
 function detailManga(id) {
   localStorage.setItem("id_item", id);
-  window.location.href = "./pages/home-page/detail-manga.html";
+  window.location.href = "./pages/detail-manga.html";
 }
 
 function expandList(api, judul) {

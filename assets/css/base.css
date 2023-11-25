@@ -24,19 +24,19 @@ a {
   color: hsl(60, 100%, 42%);
 }
 
+body {
+  background-color: var(--secondary);
+}
+
 nav {
   background-color: var(--primary);
   color: #fff;
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   justify-content: space-between;
   align-items: center;
   padding: 1em;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-}
-
-.bookmark-menu {
-  display: none;
 }
 
 nav h1 {
@@ -45,7 +45,7 @@ nav h1 {
 
 nav ul {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
 }
 
@@ -57,6 +57,18 @@ nav ul li a:hover {
   background-color: #2d9596;
   border-radius: 10px;
   color: var(--grey);
+}
+
+.container {
+  margin: 1em;
+  padding: 0.5em;
+  background-color: var(--grey);
+  border-radius: 10px;
+}
+
+.container h2 {
+  margin-top: 0.4em;
+  margin-left: 1em;
 }
 
 .card {
@@ -72,7 +84,6 @@ nav ul li a:hover {
 
 .card .card-head {
   height: 300px;
-  overflow: hidden;
 }
 
 .card .card-head img {
@@ -103,7 +114,7 @@ footer ul {
   display: flex;
 }
 
-footer ul li:first-child {
+footer ul li {
   margin-right: 20px;
 }
 
@@ -114,6 +125,10 @@ footer ul li :hover {
 
 /* Responsive Mobile */
 @media only screen and (max-width: 600px) {
+  .container {
+    font-size: 12px;
+  }
+
   nav {
     grid-template-columns: auto;
     justify-content: center;
@@ -133,7 +148,7 @@ footer ul li :hover {
 
   nav ul {
     margin: 20px 0 0 0;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 5;
   }
 

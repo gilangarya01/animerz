@@ -1,13 +1,15 @@
-let urlApiData = localStorage.getItem("url_api");
-let expandJudulData = localStorage.getItem("expand_judul");
-
-const expandCard = document.getElementById("expand-card");
-const expandJudul = document.getElementById("expand-judul");
+const animeListCard = document.querySelector(".list-card");
+const searchInput = document.getElementById("search-bar");
+const searchButton = document.getElementById("search-button");
 
 async function main() {
-  let expandList = await getAPIExpandList(urlApiData);
-  expandCard.innerHTML = renderCard(expandList);
-  expandJudul.textContent = expandJudulData;
+  let animeList = await getAPI("https://api.jikan.moe/v4/anime");
+
+  // Tampilkan data ke Halaman HTML
+  animeListCard.innerHTML = renderCard(animeList);
+  searchButton.addEventListener("click", () => {
+    cariDataAnime();
+  });
 
   const cards = document.querySelectorAll(".card");
   cards.forEach((card) => {
@@ -21,6 +23,24 @@ async function main() {
   });
 }
 
+async function cariDataAnime() {
+  let cards = "";
+  if (searchInput.value.length == 0) {
+    return;
+  } else {
+    let list = await getAPI(
+      "https://api.jikan.moe/v4/anime?q=" + searchInput.value
+    );
+    if (list.length < 1) {
+      cards = "<p>--Data tidak ditemukan--</p>";
+    } else {
+      cards = renderCard(list);
+    }
+  }
+  animeListCard.innerHTML = cards;
+}
+
+// Render Data
 function renderCard(list) {
   let cards = "";
 
@@ -47,7 +67,8 @@ function renderCard(list) {
   return cards;
 }
 
-function getAPIExpandList(url) {
+// Ambil data dari api
+function getAPI(url) {
   return fetch(url)
     .then((res) => res.json())
     .then((res) => res.data);
@@ -55,12 +76,12 @@ function getAPIExpandList(url) {
 
 function detailAnime(id) {
   localStorage.setItem("id_item", id);
-  window.location.href = "../detail-anime.html";
+  window.location.href = "./detail-anime.html";
 }
 
 function detailManga(id) {
   localStorage.setItem("id_item", id);
-  window.location.href = "../detail-manga.html";
+  window.location.href = "./detail-manga.html";
 }
 
 main();

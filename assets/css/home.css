@@ -1,22 +1,6 @@
-body {
-  background-color: var(--secondary);
-}
-
-.container {
-  margin: 1em;
-  padding: 0.5em;
-  background-color: var(--grey);
-  border-radius: 10px;
-}
-
-.container h2 {
-  margin-top: 0.4em;
-  margin-left: 1em;
-}
-
 .container ul {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .container ul li:last-child {
@@ -34,7 +18,7 @@ body {
 .list-card {
   margin: 1em;
   display: grid;
-  grid-template-columns: auto auto auto auto auto auto;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 20px;
 }
 
@@ -42,13 +26,13 @@ body {
 @media only screen and (max-width: 600px) {
   .list-card {
     gap: 0;
-    grid-template-columns: auto auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 /* Responsive Tablet */
 @media only screen and (min-width: 600px) and (max-width: 1024px) {
   .list-card {
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
