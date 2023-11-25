@@ -84,18 +84,18 @@ function getAPIForHomePage(url) {
 
 function detailAnime(id) {
   localStorage.setItem("id_item", id);
-  window.location.href = "./pages/detail-anime.html";
+  window.location.href = "./pages/home-page/detail-anime.html";
 }
 
 function detailManga(id) {
   localStorage.setItem("id_item", id);
-  window.location.href = "./pages/detail-manga.html";
+  window.location.href = "./pages/home-page/detail-manga.html";
 }
 
 function expandList(api, judul) {
   localStorage.setItem("url_api", api);
   localStorage.setItem("expand_judul", judul);
-  window.location.href = "./pages/expand-list.html";
+  window.location.href = "./pages/home-page/expand-list.html";
 }
 
 main();
