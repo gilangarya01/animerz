@@ -17,6 +17,8 @@ function renderDetail(detail) {
   detail.genres.forEach((genre) => {
     gen += `<p>- ${genre.name}</p>`;
   });
+  let synopsis = detail.synopsis.replace(/\n/g, "<br>");
+
   return `
     <h1 class="judul-detail">${detail.title}</h1>
     <div class="detail-head">
@@ -49,7 +51,7 @@ function renderDetail(detail) {
     <div class="detail-body">
       <h2>Sinopsis</h2>
       <p>
-        ${detail.synopsis}
+        ${synopsis}
       </p>
     </div>
   `;

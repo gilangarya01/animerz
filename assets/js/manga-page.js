@@ -10,17 +10,7 @@ async function main() {
   searchButton.addEventListener("click", () => {
     cariDataAnime();
   });
-
-  const cards = document.querySelectorAll(".card");
-  cards.forEach((card) => {
-    card.addEventListener("click", () => {
-      if (card.classList.contains("manga")) {
-        detailManga(card.id);
-      } else {
-        detailAnime(card.id);
-      }
-    });
-  });
+  cardClick();
 }
 
 async function cariDataAnime() {
@@ -38,6 +28,20 @@ async function cariDataAnime() {
     }
   }
   animeListCard.innerHTML = cards;
+  cardClick();
+}
+
+function cardClick() {
+  const cards = document.querySelectorAll(".card");
+  cards.forEach((card) => {
+    card.addEventListener("click", () => {
+      if (card.classList.contains("manga")) {
+        detailManga(card.id);
+      } else {
+        detailAnime(card.id);
+      }
+    });
+  });
 }
 
 // Render Data

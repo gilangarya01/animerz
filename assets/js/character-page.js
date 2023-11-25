@@ -10,11 +10,7 @@ async function main() {
   searchButton.addEventListener("click", () => {
     cariDataAnime();
   });
-
-  const cards = document.querySelectorAll(".card");
-  cards.forEach((card) => {
-    card.addEventListener("click", () => {});
-  });
+  cardClick();
 }
 
 async function cariDataAnime() {
@@ -32,6 +28,16 @@ async function cariDataAnime() {
     }
   }
   animeListCard.innerHTML = cards;
+  cardClick();
+}
+
+function cardClick() {
+  const cards = document.querySelectorAll(".card");
+  cards.forEach((card) => {
+    card.addEventListener("click", () => {
+      detailChara(card.id);
+    });
+  });
 }
 
 // Render Data
@@ -66,6 +72,11 @@ function getAPI(url) {
   return fetch(url)
     .then((res) => res.json())
     .then((res) => res.data);
+}
+
+function detailChara(id) {
+  localStorage.setItem("id_item", id);
+  window.location.href = "./detail-character.html";
 }
 
 main();
