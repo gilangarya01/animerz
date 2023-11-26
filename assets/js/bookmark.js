@@ -3,8 +3,17 @@ let listManga = localStorage.getItem("manga_saved");
 listAnime = JSON.parse(listAnime);
 listManga = JSON.parse(listManga);
 
+let hapusMenu = false;
+
 const animeListCard = document.getElementById("animeku");
 const mangaListCard = document.getElementById("mangaku");
+
+const hapusBtnToggle = document.getElementById("hapus-btn");
+hapusBtnToggle.addEventListener("click", () => {
+  hapusBtnToggle.classList.toggle("active-hapus")
+    ? (hapusMenu = true)
+    : (hapusMenu = false);
+});
 
 async function main() {
   let animeDatas = new Array();
@@ -34,6 +43,16 @@ async function main() {
   const cards = document.querySelectorAll(".card");
   cards.forEach((card) => {
     card.addEventListener("click", () => {
+      if (hapusMenu) {
+        if (card.classList.contains("manga")) {
+          deleteManga(card.id);
+        } else {
+          deleteAnime(card.id);
+        }
+        window.location.href = "";
+        return;
+      }
+
       if (card.classList.contains("manga")) {
         detailManga(card.id);
       } else {
@@ -41,6 +60,24 @@ async function main() {
       }
     });
   });
+}
+
+function deleteAnime(id) {
+  let arr = localStorage.getItem("anime_saved");
+  arr = JSON.parse(arr);
+
+  let newData = arr.filter((mal_id) => mal_id != id);
+  newData = JSON.stringify(newData);
+  localStorage.setItem("anime_saved", newData);
+}
+
+function deleteManga(id) {
+  let arr = localStorage.getItem("manga_saved");
+  arr = JSON.parse(arr);
+
+  let newData = arr.filter((mal_id) => mal_id != id);
+  newData = JSON.stringify(newData);
+  localStorage.setItem("manga_saved", newData);
 }
 
 // Render Data

@@ -28,6 +28,30 @@ a {
   margin: 30px;
 }
 
+.judul-area {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.judul-area #hapus-btn {
+  margin-right: 1rem;
+  background-color: var(--grey);
+  border: none;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.judul-area #hapus-btn:hover {
+  cursor: pointer;
+  color: #ff0000;
+}
+
+.active-hapus {
+  color: #ff0000;
+}
+
 body {
   background-color: var(--secondary);
 }
