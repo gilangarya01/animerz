@@ -4,6 +4,33 @@ let id_item = localStorage.getItem("id_item");
 async function main() {
   let detail = await getAPIDetail(id_item);
   container.innerHTML = renderDetail(detail);
+
+  const addButton = document.querySelectorAll(".add-bookmark-anime");
+  addButton.forEach((add) => {
+    add.addEventListener("click", () => {
+      addBookmark(add.id);
+    });
+  });
+}
+
+function addBookmark(id) {
+  let id_array;
+  console.log(id);
+  if (localStorage.getItem("manga_saved")) {
+    arr = localStorage.getItem("manga_saved");
+    arr = JSON.parse(arr);
+
+    if (!arr.includes(id)) {
+      arr.push(id);
+    }
+
+    id_array = JSON.stringify(arr);
+  } else {
+    arr = [id];
+    id_array = JSON.stringify(arr);
+  }
+  localStorage.setItem("manga_saved", id_array);
+  window.location.href = "";
 }
 
 function getAPIDetail(id) {
@@ -35,6 +62,7 @@ function renderDetail(detail) {
         <li>Volume: ${detail.volumes}</li>
         <li>${detail.status}</li>
         <li>Genre: ${gen}</li>
+        <button id="${detail.mal_id}" class="add-bookmark add-bookmark-anime"><i class="fa-solid fa-plus"></i></button>
       </ul>
     </div>
 

@@ -24,6 +24,10 @@ a {
   color: hsl(60, 100%, 42%);
 }
 
+.bookmark-sub {
+  margin: 30px;
+}
+
 body {
   background-color: var(--secondary);
 }
@@ -45,7 +49,7 @@ nav h1 {
 
 nav ul {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 20px;
 }
 
@@ -108,6 +112,19 @@ nav ul li a:hover {
   padding: 10px;
   color: #fff;
   border-radius: 10px;
+}
+
+.add-bookmark {
+  color: white;
+  margin-top: 5px;
+  background-color: #265073;
+  border: none;
+  padding: 8px;
+}
+
+.add-bookmark:hover {
+  cursor: pointer;
+  background-color: #1e405b;
 }
 
 footer {
