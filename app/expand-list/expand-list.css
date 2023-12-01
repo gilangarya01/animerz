@@ -1,3 +1,5 @@
+@import url(/app/base/base.css);
+
 .list-card {
   margin: 1em;
   display: grid;

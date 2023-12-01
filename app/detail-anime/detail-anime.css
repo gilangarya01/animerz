@@ -1,7 +1,14 @@
+@import url(/app/base/base.css);
+
+iframe {
+  border: 8px solid #265073;
+  border-radius: 10px;
+}
+
 .detail-head {
   padding: 1rem 1rem 0 1rem;
   display: grid;
-  grid-template-columns: auto 80%;
+  grid-template-columns: auto 50% auto;
 }
 
 .detail-head img {
@@ -26,6 +33,10 @@
   margin-bottom: 10px;
 }
 
+.detail-body {
+  margin: 3em 0 1em 0;
+}
+
 .detail-body p {
   padding: 10px 25px;
 }
@@ -34,5 +45,12 @@
 @media only screen and (max-width: 600px) {
   .detail-head {
     grid-template-columns: auto;
+  }
+}
+
+/* Responsive Tablet */
+@media only screen and (min-width: 600px) and (max-width: 1024px) {
+  .detail-head {
+    grid-template-columns: auto 2fr;
   }
 }

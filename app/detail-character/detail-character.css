@@ -1,3 +1,5 @@
+@import url(/app/base/base.css);
+
 .detail-head {
   padding: 1rem 1rem 0 1rem;
   display: grid;
@@ -24,10 +26,6 @@
 
 .trailer-area h3 {
   margin-bottom: 10px;
-}
-
-.detail-body {
-  margin: 3em 0 1em 0;
 }
 
 .detail-body p {
