@@ -1,0 +1,31 @@
+@import url(/app/base/base.css);
+
+main {
+  padding: 1rem;
+}
+
+.title-area {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.bookmark-sub {
+  margin-bottom: 1rem;
+}
+
+#deleteBtn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 20px;
+}
+
+.judul-area #deleteBtn:hover {
+  cursor: pointer;
+  color: #c20000;
+}
+
+.active-hapus {
+  color: #c20000;
+}

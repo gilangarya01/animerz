@@ -1,20 +1,16 @@
-import {
-  getAllDataFromAPI,
-  renderCardChara,
-  cardClick,
-} from "/app/base/utils.js";
+import { getDataFromAPI, renderCardChara, cardClick } from "/app/base/utils.js";
 
 const animeListCard = document.querySelector(".list-card");
-const searchInput = document.getElementById("search-bar");
-const searchButton = document.getElementById("search-button");
+const searchInput = document.getElementById("inputSearch");
+const searchButton = document.getElementById("searchBtn");
 
 async function main() {
-  let animeList = await getAllDataFromAPI(
-    "https://api.jikan.moe/v4/characters"
+  let charaList = await getDataFromAPI(
+    "https://api.jikan.moe/v4/characters?limit=24"
   );
 
   // Tampilkan data ke Halaman HTML
-  animeListCard.innerHTML = renderCardChara(animeList);
+  animeListCard.innerHTML = renderCardChara(charaList);
   searchButton.addEventListener("click", () => {
     cariDataAnime();
   });
@@ -27,11 +23,11 @@ async function cariDataAnime() {
   if (searchInput.value.length == 0) {
     return;
   } else {
-    let list = await getAllDataFromAPI(
-      "https://api.jikan.moe/v4/characters?q=" + searchInput.value
+    let list = await getDataFromAPI(
+      "https://api.jikan.moe/v4/characters?limit=24&q=" + searchInput.value
     );
     if (list.length < 1) {
-      cards = "<p>--Data tidak ditemukan--</p>";
+      cards = "<p>--No Data--</p>";
     } else {
       cards = renderCardChara(list);
     }

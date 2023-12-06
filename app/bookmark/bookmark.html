@@ -1,50 +1,44 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
   <head>
-    <title>Halaman Utama</title>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="/app/expand-list/expand-list.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookmark</title>
+    <link rel="stylesheet" href="/app/bookmark/bookmark.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
   </head>
-
   <body>
     <nav>
-      <a href="/index.html">
-        <h1>Animerz</h1>
-      </a>
-      <ul>
+      <h2><a href="/index.html">Animerz</a></h2>
+      <ul class="nav-list">
         <li><a href="/index.html">Home</a></li>
         <li><a href="/app/anime-page/anime-page.html">Anime</a></li>
         <li><a href="/app/manga-page/manga-page.html">Manga</a></li>
-        <li><a href="/app/character-page/character-page.html">Karakter</a></li>
+        <li><a href="/app/character-page/character-page.html">Character</a></li>
         <li>
           <a href="/app/bookmark/bookmark.html">Bookmark </a>
         </li>
       </ul>
     </nav>
+
     <main>
-      <div class="container">
-        <div class="judul-area">
-          <h2>Bookmark</h2>
-          <button id="hapus-btn"><i class="fa-solid fa-trash"></i></button>
-        </div>
-        <ul class="bookmark-sub">
-          <li><h4>Anime :</h4></li>
-          <div id="animeku" class="list-card"></div>
-        </ul>
-        <ul class="bookmark-sub">
-          <li><h4>Manga :</h4></li>
-          <div id="mangaku" class="list-card"></div>
-        </ul>
+      <div class="title-area">
+        <h2>Bookmark</h2>
+        <button id="deleteBtn"><i class="fa-solid fa-trash"></i></button>
       </div>
+      <ul class="bookmark-sub">
+        <li><h4>Anime :</h4></li>
+        <div id="my-anime" class="list-card"></div>
+      </ul>
+      <ul class="bookmark-sub">
+        <li><h4>Manga :</h4></li>
+        <div id="my-manga" class="list-card"></div>
+      </ul>
     </main>
+
     <footer>
       <div class="footer-title">
         <h2>Animerz</h2>
@@ -55,6 +49,6 @@
       </ul>
     </footer>
 
-    <script src="/app/bookmark/bookmark.js"></script>
+    <script type="module" src="/app/bookmark/bookmark.js"></script>
   </body>
 </html>

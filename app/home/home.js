@@ -13,15 +13,15 @@ const listMangaRekomendasi = document.getElementById("manga-rekomendasi");
 async function main() {
   // Ambil data dari API
   let animeSeasonIni = await getDataFromAPI(
-    "https://api.jikan.moe/v4/seasons/now",
+    "https://api.jikan.moe/v4/seasons/now?limit=6",
     6
   );
   let animeRekomendasi = await getDataFromAPI(
-    "https://api.jikan.moe/v4/top/anime",
+    "https://api.jikan.moe/v4/top/anime?limit=6",
     6
   );
   let mangaRekomendasi = await getDataFromAPI(
-    "https://api.jikan.moe/v4/top/manga",
+    "https://api.jikan.moe/v4/top/manga?limit=6",
     6
   );
 
@@ -36,20 +36,20 @@ async function main() {
   const expandButton = document.querySelectorAll(".expand");
   expandButton.forEach((exp) => {
     exp.addEventListener("click", (e) => {
-      if (exp.classList.contains("exp-anime-season-ini")) {
+      if (exp.classList.contains("exp-anime-now")) {
         goToExpandList(
-          "https://api.jikan.moe/v4/seasons/now",
-          "Anime Season Ini :"
+          "https://api.jikan.moe/v4/seasons/now?limit=24",
+          "Anime Season Now"
         );
-      } else if (exp.classList.contains("exp-rekomen-anime")) {
+      } else if (exp.classList.contains("exp-anime-recommend")) {
         goToExpandList(
-          "https://api.jikan.moe/v4/top/anime",
-          "Rekomendasi Anime :"
+          "https://api.jikan.moe/v4/top/anime?limit=24",
+          "Anime Recommendation"
         );
-      } else if (exp.classList.contains("exp-rekomen-manga")) {
+      } else if (exp.classList.contains("exp-manga-recommend")) {
         goToExpandList(
-          "https://api.jikan.moe/v4/top/manga",
-          "Rekomendasi Manga :"
+          "https://api.jikan.moe/v4/top/manga?limit=24",
+          "Manga Recommendation"
         );
       }
     });

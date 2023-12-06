@@ -1,44 +1,81 @@
 @import url(/app/base/base.css);
 
-.detail-head {
-  padding: 1rem 1rem 0 1rem;
-  display: grid;
-  grid-template-columns: auto 80%;
+main {
+  margin: 0.5em;
 }
 
-.detail-head img {
-  border: 10px solid #265073;
-  border-radius: 10px;
+.title-area {
+  background-color: #0000ca;
+  color: #ffffff;
+  padding: 0.2em 0.5em;
 }
 
-.detail-head ul {
-  padding-top: 1em;
-  padding-left: 20px;
+.container {
+  margin-top: 0.5em;
+  display: flex;
 }
 
-.detail-head ul li {
-  margin-bottom: 10px;
+.img-thumbnail {
+  width: 40%;
 }
 
-.trailer-area {
-  margin-top: 30px;
+.detail-area {
+  margin-left: 0.5em;
 }
 
-.trailer-area h3 {
-  margin-bottom: 10px;
+.synopsis h4 {
+  margin-bottom: 0.5em;
 }
 
-.detail-body {
-  margin: 3em 0 1em 0;
+.add-bookmark {
+  margin-top: 0.8rem;
+  background-color: #0000ca;
+  color: #ffffff;
+  outline: none;
+  border: none;
+  padding: 5px 10px;
 }
 
-.detail-body p {
-  padding: 10px 25px;
+.add-bookmark:hover {
+  background-color: #000075;
+  color: #dedede;
+  cursor: pointer;
 }
 
-/* Responsive Mobile */
-@media only screen and (max-width: 600px) {
-  .detail-head {
-    grid-template-columns: auto;
+/* Responsive */
+@media only screen and (min-width: 600px) {
+  h4 {
+    font-size: 1.5rem;
+  }
+
+  h5 {
+    font-size: 1rem;
+  }
+
+  h6 {
+    font-size: 0.8rem;
+  }
+
+  .img-thumbnail {
+    width: 30%;
+  }
+
+  .detail-area {
+    margin-left: 2em;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  hr {
+    border: 3px solid rgb(0, 0, 90);
+    margin: 1em 0;
+  }
+
+  main {
+    margin: 5em;
+  }
+
+  .img-thumbnail {
+    width: 20%;
   }
 }

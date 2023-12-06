@@ -1,12 +1,5 @@
 // Ambil data dari api
-function getDataFromAPI(url, amount) {
-  return fetch(url)
-    .then((res) => res.json())
-    .then((res) => res.data.slice(0, amount));
-}
-
-// Ambil data dari api
-function getAllDataFromAPI(url) {
+function getDataFromAPI(url) {
   return fetch(url)
     .then((res) => res.json())
     .then((res) => res.data);
@@ -16,25 +9,26 @@ function getAllDataFromAPI(url) {
 function renderCard(list) {
   let cards = "";
 
-  var maxLength = 25;
+  var maxLength = 18;
 
   list.forEach((item) => {
     cards += `
-        <div id="${item.mal_id}" class="card ${
+    <div id="${item.mal_id}" class="card ${
       item.type == "Manga" ? "manga" : "anime"
     }">
-          <div class="card-head">
-            <img src="${item.images.webp.image_url}" alt="images" />
-          </div>
-          <div class="card-body">
-            <h3>${
-              item.title.length > maxLength
-                ? item.title.substring(0, maxLength) + "..."
-                : item.title
-            }</h3>
-            <h4>Skor: ${item.score} <i class="fa-solid fa-star"></i></h4>
-          </div>
-        </div>`;
+    <img
+      src="${item.images.webp.image_url}"
+      alt="images"
+      class="card-image"
+    />
+    <div class="card-footer">
+      <span>${
+        item.title.length > maxLength
+          ? item.title.substring(0, maxLength) + "..."
+          : item.title
+      }</span>
+    </div>
+  </div>`;
   });
   return cards;
 }
@@ -47,21 +41,22 @@ function renderCardChara(list) {
 
   list.forEach((item) => {
     cards += `
-        <div id="${item.mal_id}" class="card chara">
-          <div class="card-head">
-            <img src="${item.images.webp.image_url}" alt="images" />
-          </div>
-          <div class="card-body">
-            <h3>${
-              item.name.length > maxLength
-                ? item.name.substring(0, maxLength) + "..."
-                : item.name
-            }</h3>
-            <h4>Favorite: ${
-              item.favorites
-            } <i class="fa-solid fa-heart"></i></h4>
-          </div>
-        </div>`;
+    <div id="${item.mal_id}" class="card ${
+      item.type == "Manga" ? "manga" : "anime"
+    }">
+    <img
+      src="${item.images.webp.image_url}"
+      alt="images"
+      class="card-image"
+    />
+    <div class="card-footer">
+      <span>${
+        item.name.length > maxLength
+          ? item.name.substring(0, maxLength) + "..."
+          : item.name
+      }</span>
+    </div>
+  </div>`;
   });
   return cards;
 }
@@ -127,7 +122,6 @@ function getAPIDetail(id, type) {
 }
 
 export {
-  getAllDataFromAPI,
   getDataFromAPI,
   renderCard,
   renderCardChara,
