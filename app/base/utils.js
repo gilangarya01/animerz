@@ -41,9 +41,7 @@ function renderCardChara(list) {
 
   list.forEach((item) => {
     cards += `
-    <div id="${item.mal_id}" class="card ${
-      item.type == "Manga" ? "manga" : "anime"
-    }">
+    <div id="${item.mal_id}" class="card chara">
     <img
       src="${item.images.webp.image_url}"
       alt="images"

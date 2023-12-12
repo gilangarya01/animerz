@@ -9,6 +9,12 @@
   font-family: "Poppins", sans-serif;
 }
 
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 a {
   color: white;
 }
@@ -107,7 +113,7 @@ section {
 }
 
 footer {
-  margin-top: 2rem;
+  margin-top: auto;
   background-color: rgb(0, 0, 90);
   color: #fff;
   padding: 0.5em 1em;

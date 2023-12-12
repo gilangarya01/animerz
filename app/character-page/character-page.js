@@ -12,13 +12,13 @@ async function main() {
   // Tampilkan data ke Halaman HTML
   animeListCard.innerHTML = renderCardChara(charaList);
   searchButton.addEventListener("click", () => {
-    cariDataAnime();
+    cariDataCharacter();
   });
   const cards = document.querySelectorAll(".card");
   cardClick(cards);
 }
 
-async function cariDataAnime() {
+async function cariDataCharacter() {
   let cards = "";
   if (searchInput.value.length == 0) {
     return;
@@ -26,11 +26,7 @@ async function cariDataAnime() {
     let list = await getDataFromAPI(
       "https://api.jikan.moe/v4/characters?limit=24&q=" + searchInput.value
     );
-    if (list.length < 1) {
-      cards = "<p>--No Data--</p>";
-    } else {
-      cards = renderCardChara(list);
-    }
+    cards = renderCardChara(list);
   }
   animeListCard.innerHTML = cards;
   const newCards = document.querySelectorAll(".card");
